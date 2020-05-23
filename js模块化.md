@@ -67,16 +67,66 @@
 
 ### 实现
 
-- 服务端：
+- 服务端： node环境自带
 
-- 浏览器端：
+- 浏览器端：browserify 可以编译项目使其支持require/module
 
-    - browserify
+2. Amd （layUI）
 
+### 说明：依赖reuquire.js https://requirejs.org/docs/api.html
 
+- 暴露模块
 
-2. Amd
+```javascript
+define(function(){
+    return 模块;
+})
+```
+
+- 有依赖的模块
+```javascript
+define(['module1','module2'],function(m1,m2){
+    return 模块;
+})
+```
+- 引入模块
+
+```javascript
+require(['module1','module2'],function(m1,m2){
+
+})
+```
 
 3. ES6
 
+### 说明：
+
+> 需要编译打包处理；（有些语法不支持）
+
+- 引入 ： import (import module from './modules/modules';)
+
+- 暴漏： export
+
 4. CMD (了解)
+
+> 综合了AMD和common.js，暴漏用common.js，引入用AMD
+### 说明：依赖sea.js
+
+- 暴露模块
+
+- 有依赖的模块
+```javascript
+define(function(require,module,exports){
+    require('./xxx.js');
+    module.exports.modlue = {
+    }
+})
+```
+
+- 引入模块
+
+```javascript
+define(function(require,module,exports){
+    require('./xxx.js');
+})
+```
